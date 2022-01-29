@@ -32,6 +32,9 @@ class ProductController extends Controller
       // echo 'create';
   // }
 
+
+//test
+
     /**
      * 商品詳細を表示する
      * @param int $id
