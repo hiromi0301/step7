@@ -35,6 +35,8 @@ class ProductController extends Controller
 
 //test
 
+//test
+
     /**
      * 商品詳細を表示する
      * @param int $id
