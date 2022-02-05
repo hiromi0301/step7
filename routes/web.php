@@ -40,3 +40,5 @@ Route::get('/product/{id}', [ProductController::class,'detail'])->name('detail')
 Route::get('/product/edit/{id}', [ProductController::class,'edit'])->name('edit');
 Route::post('/product/update',[ProductController::class,'update'])->name('update');
 
+//商品削除
+Route::post('/product/delete/{id}',[ProductController::class,'delete'])->name('delete');

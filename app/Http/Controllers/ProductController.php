@@ -134,13 +134,17 @@ public function create() {
         //商品のデータを受け取る
         $inputs=$request->all();
 
-        
+      
 
         \DB::beginTransaction();
 
         try{
          //商品を登録
         $product =  Product::find($inputs ['id']);
+        $product->fill([ 'product_name' => $inputs['product_name'],
+                             'content'  => $inputs['content'],
+        ]);
+        $product->save();
          \DB::commit();
         } catch(\Throwable $e){
             \DB::rollback();
@@ -149,11 +153,43 @@ public function create() {
         }
        
 
-        \Session::flash('err_msg','商品を登録しました');
+        \Session::flash('err_msg','商品を更新しました');
         return redirect(route('index'));
         
 
     }
+
+
+
+    /**
+     * 商品削除
+     * @param int $id
+     * @return view
+     */
+    public function delete($id){
+   
+        if (empty($id)) {
+            \Session::flash('err_msg','データがありません。');
+            return redirect(route('index'));
+
+        }
+
+        try{
+            //商品を削除
+            Product::destroy($id);
+           } catch(\Throwable $e){
+               abort(500);
+   
+           }
+
+    
+        
+       
+      
+           \Session::flash('err_msg','削除しました。');
+           return redirect(route('index'));
+
+   } 
 
 
    }

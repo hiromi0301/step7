@@ -153,6 +153,9 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'product_name'=>'商品名',
+        'content'  =>'商品内容',
+    ],
 
 ];

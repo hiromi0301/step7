@@ -17,7 +17,8 @@ class CreateYourTableNameHereTable extends Migration
             $table->id();
             $table->string('product_name');
             $table->string('content');
-            $table->timestamps();
+            $table->string('price');
+            $table->string('stock');
 
         });
     }

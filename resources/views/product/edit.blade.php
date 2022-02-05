@@ -6,6 +6,7 @@
         <h2>商品編集フォーム</h2>
         <form method="POST" action="{{ route('update') }}" onSubmit="return checkSubmit()">
           @csrf  
+            <input type ="hidden" name="id" value="{{ $product->id }}">
             <div class="form-group">
                 <label for="title">
                     商品名
